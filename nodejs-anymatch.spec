@@ -7,11 +7,11 @@
 Summary:       Matches strings against anything
 Name:          %{?scl_prefix}nodejs-%{npm_name}
 Version:       1.3.0
-Release:       2%{?dist}
+Release:       4%{?dist}
 License:       ISC
 URL:           https://github.com/es128/anymatch
 Source0:       http://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
-BuildRequires: nodejs010-runtime
+BuildRequires: %{?scl_prefix}runtime
 ExclusiveArch: %{nodejs_arches} noarch
 BuildArch:     noarch
 Provides:      %{?scl_prefix}nodejs-%{npm_name} = %{version}
@@ -43,6 +43,12 @@ cp -pr index.js package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %{nodejs_sitelib}/%{npm_name}
 
 %changelog
+* Tue Feb 16 2016 Zuzana Svetlikova <zsvetlik@redhat.com> - 1.3.0-4
+- Use macro in -runtime dependency
+
+* Sun Feb 14 2016 Zuzana Svetlikova <zsvetlik@redhat.com> - 1.3.0-3
+- Rebuilt with updated metapackage
+
 * Wed Jan 06 2016 Tomas Hrcka <thrcka@redhat.com> - 1.3.0-2
 - Enable scl macros
 
